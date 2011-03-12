@@ -11,7 +11,7 @@ en:
       unconfirmed: 'Você precisa confirmar sua conta antes de continuar.'
       locked: 'Sua conta está bloqueada.'
       invalid: 'E-mail ou senha inválidos.'
-      invalid_token: 'Invalid authentication token.'
+      invalid_token: 'Token de autenticação inválido.'
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
