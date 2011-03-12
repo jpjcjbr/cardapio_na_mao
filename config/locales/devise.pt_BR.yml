@@ -12,28 +12,28 @@ en:
       locked: 'Sua conta está bloqueada.'
       invalid: 'E-mail ou senha inválidos.'
       invalid_token: 'Token de autenticação inválido.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
+      timeout: 'Sua sessão expirou, favor fazer logon novamente para continuar.'
+      inactive: 'Sua conta ainda não está ativada.'
     sessions:
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      signed_in: 'Logon efetuado com sucesso.'
+      signed_out: 'Logoff efetuado com sucesso.'
     passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
+      send_instructions: 'Você receberá um email com instruções para resetar sua senha em alguns instantes.'
+      updated: 'Sua senha foi alterada com sucesso. Você está logado.'
     confirmations:
-      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+      send_instructions: 'Você receberá um email com instruções para confirmar seu cadastros em alguns instantes.'
+      confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
     registrations:
-      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
-      updated: 'You updated your account successfully.'
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      signed_up: 'Sua conta foi criada com sucesso. Um e-mail de confirmação será enviado em alguns instantes.'
+      updated: 'Conta alterada com sucessoYou updated your account successfully.'
+      destroyed: 'Conta cancelada com sucesso.'
     unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+      send_instructions: 'Você receberá um email com instruções para desbloquear sua conta em alguns instantes.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Você está logado.'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Instruções para confirmação da conta'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'Instruções para resetar a senha'
       unlock_instructions:
-        subject: 'Unlock Instructions'
+        subject: 'Instruções para desbloquear a conta'
