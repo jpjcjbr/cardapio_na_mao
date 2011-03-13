@@ -21,7 +21,7 @@
   <div class="field">
     <%= f.label :categoria_id %><br />    
 	<%= f.collection_select(:categoria_id,
-		get_all_categorias_from_current_user,
+		get_all_categorias_from_user current_user,
 		:id, :nome, {:prompt => true}) %>
   </div>
   <div class="field">

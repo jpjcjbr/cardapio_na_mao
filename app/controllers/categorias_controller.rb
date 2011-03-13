@@ -1,5 +1,5 @@
 class CategoriasController < ApplicationController
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, :except => [:all_categorias_from_user]
 	
 	respond_to :html, :xml, :json
 	
@@ -8,10 +8,21 @@ class CategoriasController < ApplicationController
   def index
 	ActiveRecord::Base.include_root_in_json = false
 	
-    @categorias = get_all_categorias_from_current_user
+    @categorias = get_all_categorias_from_user current_user
 	
     respond_with @categorias
-  end   
+  end
+
+  def all_categorias_from_user
+	ActiveRecord::Base.include_root_in_json = false			
+	
+	user = User.find_by_email params[:email]
+	
+	if user != nil			
+		@categorias = get_all_categorias_from_user user
+		respond_with @categorias		
+	end	
+  end
 
   # GET /categorias/1
   # GET /categorias/1.xml

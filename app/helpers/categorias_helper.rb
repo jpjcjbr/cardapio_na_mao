@@ -1,6 +1,6 @@
 module CategoriasHelper
-	def get_all_categorias_from_current_user
-		categorias = Categoria.find_all_by_user_id current_user.id
+	def get_all_categorias_from_user(user)
+		categorias = Categoria.find_all_by_user_id user.id
 
 		if categorias == nil
 			categorias = Array.new
@@ -8,4 +8,5 @@ module CategoriasHelper
 		
 		categorias
 	end
+		
 end
