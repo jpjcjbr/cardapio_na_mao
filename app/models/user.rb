@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :categorias
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,

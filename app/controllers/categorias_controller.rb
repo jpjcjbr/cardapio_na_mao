@@ -1,5 +1,6 @@
 class CategoriasController < ApplicationController
 	before_filter :authenticate_user!
+	
 	respond_to :html, :xml, :json
 	
   # GET /categorias
@@ -7,16 +8,16 @@ class CategoriasController < ApplicationController
   def index
 	ActiveRecord::Base.include_root_in_json = false
 	
-    @categorias = Categoria.all
+    @categorias = Categoria.find_by_user_id current_user.id
 
     respond_with @categorias
-  end
+  end   
 
   # GET /categorias/1
   # GET /categorias/1.xml
   def show
 	ActiveRecord::Base.include_root_in_json = false
-    @categoria = Categoria.find(params[:id])
+    @categoria = Categoria.find(params[:id])	
 
     respond_with @categoria
   end
@@ -25,7 +26,7 @@ class CategoriasController < ApplicationController
   # GET /categorias/new.xml
   def new
     @categoria = Categoria.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @categoria }
@@ -41,6 +42,7 @@ class CategoriasController < ApplicationController
   # POST /categorias.xml
   def create
     @categoria = Categoria.new(params[:categoria])
+	@categoria.user = current_user
 
     respond_to do |format|
       if @categoria.save
@@ -79,5 +81,5 @@ class CategoriasController < ApplicationController
       format.html { redirect_to(categorias_url) }
       format.xml  { head :ok }
     end
-  end
+  end  
 end
