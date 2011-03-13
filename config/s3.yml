@@ -1,0 +1,14 @@
+development:
+  bucket: cardapio_digital_development
+  access_key_id: AKIAJE7PUCXELCITWT6A
+  secret_access_key: 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
+
+test:
+  bucket: cardapio_digital_test
+  access_key_id: AKIAJE7PUCXELCITWT6A
+  secret_access_key: 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
+
+production:
+  bucket: cardapio_digital_production
+  access_key_id: AKIAJE7PUCXELCITWT6A
+  secret_access_key: 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

@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312004839) do
+ActiveRecord::Schema.define(:version => 20110313011931) do
+
+  create_table "categorias", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "itens", :force => true do |t|
+    t.string   "nome"
+    t.integer  "categoria_id"
+    t.string   "url_imagem"
+    t.string   "descricao"
+    t.decimal  "preco"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
