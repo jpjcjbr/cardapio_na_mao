@@ -1,5 +1,6 @@
 CardapioNaMao::Application.routes.draw do
-	match 'categorias_json' => 'categorias#all_categorias_from_user'	
+	match 'categorias_json' => 'categorias#all_categorias_from_user'
+	match 'itens_json' => 'itens#all_itens_from_user'
 	
 	resources :itens
 

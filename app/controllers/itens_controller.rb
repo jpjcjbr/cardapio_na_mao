@@ -1,5 +1,5 @@
 class ItensController < ApplicationController
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, :except => [:all_itens_from_user]
 	respond_to :html, :xml, :json
 	
   # GET /itens
@@ -7,13 +7,20 @@ class ItensController < ApplicationController
   def index
 	ActiveRecord::Base.include_root_in_json = false    
 	
-	@itens = Array.new
-	
-	current_user.categorias.each do |categoria| 
-		@itens = @itens + categoria.itens
-	end
-	
+	@itens = get_all_itens_from_user current_user
+
 	respond_with @itens
+  end
+  
+  def all_itens_from_user
+	ActiveRecord::Base.include_root_in_json = false			
+	
+	user = User.find_by_email params[:email]
+	
+	if user != nil			
+		@itens = get_all_itens_from_user user
+		respond_with @itens		
+	end	
   end
 
   # GET /itens/1
