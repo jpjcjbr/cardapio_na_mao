@@ -8,8 +8,8 @@ class CategoriasController < ApplicationController
   def index
 	ActiveRecord::Base.include_root_in_json = false
 	
-    @categorias = Categoria.find_by_user_id current_user.id
-
+    @categorias = get_all_categorias_from_current_user
+	
     respond_with @categorias
   end   
 

@@ -5,9 +5,14 @@ class ItensController < ApplicationController
   # GET /itens
   # GET /itens.xml
   def index
-	ActiveRecord::Base.include_root_in_json = false
-    @itens = Item.order('nome ASC')
-    	
+	ActiveRecord::Base.include_root_in_json = false    
+	
+	@itens = Array.new
+	
+	current_user.categorias.each do |categoria| 
+		@itens = @itens + categoria.itens
+	end
+	
 	respond_with @itens
   end
 
