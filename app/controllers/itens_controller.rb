@@ -17,8 +17,10 @@ class ItensController < ApplicationController
 	
 	user = User.find_by_email params[:email]
 	
+	data = convert_date_to_appropriate_format params[:data]
+		
 	if user	
-		@itens = get_all_itens_from_user user
+		@itens = get_itens_from_user_by_date user, data
 		respond_with @itens		
 	else
 		respond_with '{"erro":"Usuário Inválido."}'

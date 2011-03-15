@@ -18,8 +18,10 @@ class CategoriasController < ApplicationController
 	
 	user = User.find_by_email params[:email]
 	
+	data = convert_date_to_appropriate_format params[:data]
+	
 	if user
-		@categorias = get_all_categorias_from_user user
+		@categorias = get_categorias_from_user_by_date user, data
 		respond_with @categorias
 	else
 		respond_with '{"erro":"Usuário Inválido."}'
