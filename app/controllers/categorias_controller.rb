@@ -18,9 +18,9 @@ class CategoriasController < ApplicationController
 	
 	user = User.find_by_email params[:email]
 	
-	if user != nil			
+	if user != nil
 		@categorias = get_all_categorias_from_user user
-		respond_with @categorias		
+		respond_with @categorias
 	end	
   end
 
