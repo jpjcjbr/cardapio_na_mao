@@ -9,6 +9,11 @@ class Item < ActiveRecord::Base
 		:styles => { :medium => "300x300>", :thumb => "100x100#", :original => "800x600>" }
 	
 	def url_imagem
-		imagem.to_s
+		if imagem_file_name		
+			imagem.to_s
+		else
+			''
+		end
 	end
+		
 end
