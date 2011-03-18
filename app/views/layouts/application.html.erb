@@ -1,18 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <title>Cardápio na Mão</title>
+  <title>Cardápio na Mão</title>  
   <%= javascript_include_tag :defaults %>
+	
 	<% if content_for? :js_css %>
 		<%= yield :js_css %>		
 	<% else %>			
-		<%= stylesheet_link_tag "scaffold" %>
+		
 	<% end %>	
   <%= csrf_meta_tag %>  
 </head>
-<body>
-
-<%= yield%>
-
+<body id="admin" class="clientdashboard">
+	<% if content_for? :login %>
+		<%= yield :login %>
+	<% else %>
+		<%= yield %>
+	<% end %>	
 </body>
 </html>

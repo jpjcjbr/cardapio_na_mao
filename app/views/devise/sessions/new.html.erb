@@ -2,26 +2,28 @@
 	<%= stylesheet_link_tag "login" %>
 <% end %>
 
-<div id="additional"></div>
-<div id="formWrapper">
-	<div id="formCasing">
-		<h1>Cardápio na Mão</h1>
-		<div id="loginForm">
-			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-				<dt><%= f.label :email, 'E-mail' %></dt>
-				<dd><%= f.text_field :email, :class => 'input'%></dd>
+<%= content_for :login do %>
+	<div id="additional"></div>
+	<div id="formWrapper">
+		<div id="formCasing">
+			<h1>Cardápio na Mão</h1>
+			<div id="loginForm">
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					<dt><%= f.label :email, 'E-mail' %></dt>
+					<dd><%= f.text_field :email, :class => 'input'%></dd>
 
-				<dt><%= f.label :password, 'Senha' %></dt>
-				<dd>
-					<%= f.password_field :password, :class => 'input' %>
-					<span>
-						<%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %>					
-					</span>
-				</dd>
-				<dd><%= f.check_box :remember_me %> <%= f.label :remember_me, 'Continuar conectado' %></dd>
-				<dd><%= f.submit "Login", :src => '/images/login.gif', :type => 'image' %></dd>				
-			<% end %>
+					<dt><%= f.label :password, 'Senha' %></dt>
+					<dd>
+						<%= f.password_field :password, :class => 'input' %>
+						<span>
+							<%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %>					
+						</span>
+					</dd>
+					<dd><%= f.check_box :remember_me %> <%= f.label :remember_me, 'Continuar conectado' %></dd>
+					<dd><%= f.submit "Login", :src => '/images/login.gif', :type => 'image' %></dd>				
+				<% end %>
+			</div>
 		</div>
+		<div id="formFooter"></div>
 	</div>
-	<div id="formFooter"></div>
-</div>
+<% end %>
