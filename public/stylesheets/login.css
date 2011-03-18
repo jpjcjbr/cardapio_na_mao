@@ -1,0 +1,236 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	margin: 0 auto;
+	color: #595959;
+	background-color: #fff;
+	text-align: center;
+	font: normal 12px arial, helvetica, sans-serif
+}
+
+#formWrapper {
+	width: 450px;
+	margin: 0 auto;
+	min-width: inherit;
+	padding: 0 20px 10px;
+	text-align: left
+}
+
+#formCasing {
+	background: url("/images/login-case.png")
+		no-repeat top left;
+	padding: 20px 35px 1px 27px;
+	zoom: 1.0
+}
+
+#formFooter {
+	background:
+		url("/images/login-footer.png")
+		no-repeat top left;
+	height: 18px
+}
+
+#additional {
+	width: 500px;
+	margin: 100px auto 0
+}
+
+form dl {
+	margin: 15px 0
+}
+
+form dt {
+	float: left;
+	width: 80px;
+	font-size: 14px;
+	line-height: 24px;
+	color: #a5a5a5;
+	padding-top: 5px
+}
+
+form dd {
+	margin: 0 0 10px 90px;
+	font-size: 12px;
+	line-height: 24px;
+	color: #a5a5a5;
+	margin-left: 80px
+}
+
+dd span {
+	color: #ccc
+}
+
+h1 {
+	font-size: 24px;
+	margin: 7px 0 8px;
+	padding: 0 0 12px;
+	text-align: left;
+	line-height: 26px;
+	padding: 12px 0 12px 0 ! ie
+}
+
+h2 {
+	font-size: 14px;
+	color: #2ba02c
+}
+
+input.input {
+	font-size: 14px;
+	padding: 8px 5px;
+	font: normal 14px arial, helvetica, sans-serif;
+	border: 1px solid #dcdcdc;
+	color: #444;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px
+}
+
+input.input:focus {
+	border: 1px solid #bfbfbf;
+	outline: none
+}
+
+input.button {
+	padding: 0;
+	vertical-align: middle
+}
+
+input#user_email {
+	width: 280px
+}
+
+input#user_password {
+	width: 150px;
+	margin-right: 5px
+}
+
+input#emailpassword {
+	vertical-align: middle;
+	margin-right: 5px
+}
+
+input#forgot {
+	width: 280px
+}
+
+input.checkbox {
+	border: 0;
+	padding: 0
+}
+
+p {
+	margin-bottom: 18px;
+	text-align: left;
+	font-size: 14px;
+	line-height: 18px
+}
+
+p em {
+	font-style: italic;
+	color: #a1a1a1
+}
+
+p.success {
+	color: #12863b;
+	padding-bottom: 5px
+}
+
+p.error {
+	color: #cc2a2a;
+	padding-bottom: 5px
+}
+
+p.extraPad {
+	margin-bottom: 30px
+}
+
+#successBig {
+	background: #e1ffd1;
+	border-top: 1px solid #c5f8ac;
+	border-bottom: 1px solid #c5f8ac;
+	margin: 0 0 50px;
+	padding: 5px 20px 15px;
+	text-align: left
+}
+
+#successBig h1 {
+	padding: 10px 0 3px;
+	text-align: left;
+	font-size: 20px;
+	color: #000
+}
+
+#successBig h2 {
+	font-size: 16px;
+	padding: 8px 10px;
+	margin: 5px 0 15px;
+	text-align: left;
+	background: #c4edaf
+}
+
+#successBig p {
+	color: #535e51;
+	padding: 0 0 10px;
+	margin: 0
+}
+
+#failure {
+	background: #ffd1d1
+		url("/images/alert-failure.gif")
+		no-repeat 13px 11px;
+	border-top: 1px solid #f8acac;
+	border-bottom: 1px solid #f8acac;
+	margin: 0;
+	padding: 10px 10px 10px 35px
+}
+
+#failure h3 {
+	color: #8d3f3f;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+	text-align: left
+}
+
+.failureMessage {
+	background: #fff1f1;
+	border-bottom: 1px solid #fddcdc;
+	padding: 15px 20px 5px;
+	color: #664b4b;
+	margin-bottom: 30px
+}
+
+.clearButton {
+	clear: both;
+	height: 1px;
+	text-overflow: none
+}
+
+span.formcancel {
+	display: block;
+	width: 60px;
+	padding-top: 8px;
+	float: left;
+	color: #999
+}
+
+.login_logo {
+	margin: 0 auto;
+	padding-right: 11px;
+	_margin-bottom: 5px
+}
+
+.login_js_alert {
+	background: #FEF5CA;
+	border-bottom: 1px solid #F1DF95;
+	color: #654B4A;
+	padding: 8px 0 9px
+}
+
+a:link, a:visited, a:hover, a:active {
+	color: #ab0214;
+}
