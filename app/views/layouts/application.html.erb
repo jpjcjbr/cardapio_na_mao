@@ -2,10 +2,13 @@
 <html>
 <head>
   <title>Cardápio na Mão</title>
-  <%= stylesheet_link_tag "scaffold" %>
   <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-  <%= yield :js_css %>
+	<% if content_for? :js_css %>
+		<%= yield :js_css %>		
+	<% else %>			
+		<%= stylesheet_link_tag "scaffold" %>
+	<% end %>	
+  <%= csrf_meta_tag %>  
 </head>
 <body>
 
