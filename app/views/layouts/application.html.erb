@@ -7,7 +7,7 @@
 	<% if content_for? :js_css %>
 		<%= yield :js_css %>		
 	<% else %>			
-		
+		<%= stylesheet_link_tag "main" %>
 	<% end %>	
   <%= csrf_meta_tag %>  
 </head>
@@ -15,7 +15,63 @@
 	<% if content_for? :login %>
 		<%= yield :login %>
 	<% else %>
-		<%= yield %>
+		<div id="adminNavsWrapper">
+			<div class="adminNavs">
+				<ul>
+					<li id="adminNavsOn"><a href="./home"><span>Home</span></a></li>
+					<li>
+						<%= link_to categorias_path do%>
+							<span>Categorias</span>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to itens_path do%>
+							<span>Itens</span>
+						<% end %>						
+					</li>
+					<li>
+						<%= link_to itens_path do%>
+							<span>Dispositivos</span>
+						<% end %>						
+					</li>
+					<li>
+						<%= link_to download_path do%>
+							<span>Download</span>
+						<% end %>						
+					</li>					
+				</ul>
+			</div>
+			<div class="adminNavs adminRight">
+				<ul>					
+					<li><a href="./help"><span>Help</span></a></li>
+					<li><a href="./users/sign_out"><span>Logout</span></a></li>					
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<div id="case">
+			<div class="shadowHeader">
+				<div class="shadowMidLeft">
+					<div id="header">
+						<h1><a href="#">Cardápio na Mão</a></h1>
+					</div>
+				</div>
+			</div>
+			<div class="shadowWrap">
+				<div class="shadowMidLeft">
+					<div class="shadowMidContent">
+						<div id="dashboard">
+							<%= yield %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="shadowBottomLeft">
+				<div class="shadowMidLeft">
+				</div>
+			</div>
+		</div>		
 	<% end %>	
 </body>
 </html>
