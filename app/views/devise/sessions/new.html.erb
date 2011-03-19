@@ -1,5 +1,18 @@
 <%= content_for :js_css do%>
 	<%= stylesheet_link_tag "login" %>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#user_email").select();
+		});
+	</script>
+	<!--[if IE]>
+	<script>
+		$(document).ready(function(){
+			$("#user_email").focus();
+		});
+	</script>
+	<![endif]-->
 <% end %>
 
 <%= content_for :login do %>

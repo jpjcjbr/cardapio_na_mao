@@ -1,5 +1,5 @@
 class CategoriasController < ApplicationController
-	before_filter :authenticate_user!, :except => [:all_categorias_from_user]
+	before_filter :authenticate_user!, :except => [:all_categorias_from_user]	
 	
 	respond_to :html, :xml, :json
 	
