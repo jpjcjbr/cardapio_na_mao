@@ -5,15 +5,15 @@
 	<thead>
 		<tr>
 			<th>Nome</th>
-			<th></th>			
-			<th></th>
+			<th class="icones_tabela"></th>			
+			<th class="icones_tabela"></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @categorias.each do |categoria| %>
 			<tr>
 				<td><%= categoria.nome %></td>				
-				<td><%= link_to 'Editar', edit_categoria_path(categoria) %></td>
+				<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_categoria_path(categoria) %></td>
 				<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), categoria, :confirm => 'Deseja remover esta categoria?', :method => :delete %></td>
 			</tr>
 		<% end %>
