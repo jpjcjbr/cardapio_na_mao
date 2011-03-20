@@ -8,7 +8,7 @@ class CategoriasController < ApplicationController
   def index
 	ActiveRecord::Base.include_root_in_json = false
 	
-    @categorias = get_all_categorias_from_user current_user
+    @categorias = get_all_categorias_from_user(current_user).paginate :page => params['page'], :per_page => 10
 	
     respond_with @categorias
   end

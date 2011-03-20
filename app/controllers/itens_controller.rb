@@ -7,7 +7,7 @@ class ItensController < ApplicationController
   def index
 	ActiveRecord::Base.include_root_in_json = false    
 	
-	@itens = get_all_itens_from_user current_user
+	@itens = get_all_itens_from_user(current_user).paginate :page => params['page'], :per_page => 10
 
 	respond_with @itens
   end

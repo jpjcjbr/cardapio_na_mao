@@ -5,6 +5,7 @@ gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
 gem 'devise'
 gem 'aws-s3'
 gem 'paperclip'
+gem 'will_paginate'
 
 group :development do
   gem 'rspec-rails', '2.5.0'  
