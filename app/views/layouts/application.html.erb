@@ -22,8 +22,12 @@
 	<% else %>
 		<div id="adminNavsWrapper">
 			<div class="adminNavs">
-				<ul>
-					<li id="adminNavsOn2"><a href="./home"><span>Home</span></a></li>
+				<ul>					
+					<li id="adminNavsOn2">
+						<%= link_to home_path do%>
+							<span>Home</span>
+						<% end %>						
+					</li>
 					<li>
 						<%= link_to categorias_path do%>
 							<span>Categorias</span>
@@ -47,9 +51,17 @@
 				</ul>
 			</div>
 			<div class="adminNavs adminRight">
-				<ul>					
-					<li><a href="./help"><span>Help</span></a></li>
-					<li><a href="./users/sign_out"><span>Logout</span></a></li>					
+				<ul>		
+					<li>
+						<%= link_to ajuda_path do%>
+							<span>Ajuda</span>
+						<% end %>						
+					</li>
+					<li>
+						<%= link_to destroy_user_session_path do%>
+							<span>Logout</span>
+						<% end %>						
+					</li>					
 				</ul>
 			</div>
 			<div class="clear"></div>

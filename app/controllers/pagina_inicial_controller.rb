@@ -3,6 +3,9 @@ class PaginaInicialController < ApplicationController
 	
 	def index		
 	end
+
+	def ajuda		
+	end
 	
 	def download
 		send_file('public/CardapioNaMao.apk')
