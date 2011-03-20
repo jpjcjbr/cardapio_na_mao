@@ -8,7 +8,7 @@ class PaginaInicialController < ApplicationController
 	end
 	
 	def download
-		send_file('public/CardapioNaMao.apk')
+		send_data('public/CardapioNaMao.apk')
 	end
 
 end
