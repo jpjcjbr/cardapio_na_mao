@@ -1,12 +1,24 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-
-  <p><%= f.submit "Send me reset password instructions" %></p>
+<%= content_for :css do%>
+	<%= stylesheet_link_tag "login" %>		
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= content_for :login do %>
+	<div id="additional"></div>
+	<div id="formWrapper">
+		<div id="formCasing">
+			<h1>Esqueceu sua senha?</h1>
+			<div id="loginForm">
+				<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+					
+					<%= content_tag(:p, resource.errors.full_messages, :class => "error") unless resource.errors.empty? %>
+					
+					<dt><%= f.label :email, 'E-mail' %></dt>
+					<dd><%= f.text_field :email, :class => 'input'%></dd>
+										
+					<dd><%= f.submit "Resetar senha", :src => '/images/botao/botao_resetar_senha.png', :type => 'image' %></dd>				
+				<% end %>
+			</div>
+		</div>
+		<div id="formFooter"></div>
+	</div>
+<% end %>

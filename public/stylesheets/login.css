@@ -51,12 +51,20 @@ form dt {
 	padding-top: 5px
 }
 
+form dt.alteracaosenha {	
+	width: 90px;	
+}
+
 form dd {
 	margin: 0 0 10px 90px;
 	font-size: 12px;
 	line-height: 24px;
 	color: #a5a5a5;
 	margin-left: 80px
+}
+
+form dd.alteracaosenha {	
+	margin-left: 90px
 }
 
 dd span {
@@ -103,6 +111,11 @@ input#user_email {
 }
 
 input#user_password {
+	width: 150px;
+	margin-right: 5px
+}
+
+input#user_password_confirmation{
 	width: 150px;
 	margin-right: 5px
 }

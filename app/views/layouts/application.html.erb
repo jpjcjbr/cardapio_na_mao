@@ -3,18 +3,12 @@
 <head>
   <title>Cardápio na Mão</title>
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
-  <%= javascript_include_tag :defaults %>
-	
-	<% if content_for? :js_css %>
-		<%= yield :js_css %>		
+  <% if content_for? :css %>
+		<%= yield :css %>		
 	<% else %>			
 		<%= stylesheet_link_tag "main" %>
 	<% end %>	
-  <%= csrf_meta_tag %>  
-  
-	<!--[if lte IE 6]>
-		<script type="text/javascript" src="http://js.createsend1.com/js/plugins/supersleight-min.js?1"></script>
-	<![endif]--> 
+  <%= csrf_meta_tag %>  	
 </head>
 <body id="admin" class="clientdashboard">
 	<% if content_for? :login %>
@@ -90,5 +84,12 @@
 			</div>
 		</div>		
 	<% end %>	
+	<%= javascript_include_tag :defaults %>
+	<!--[if lte IE 6]>
+		<script type="text/javascript" src="http://js.createsend1.com/js/plugins/supersleight-min.js?1"></script>
+	<![endif]--> 
+	<% if content_for? :js %>
+		<%= yield :js %>						
+	<% end %>
 </body>
 </html>
