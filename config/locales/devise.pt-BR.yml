@@ -21,13 +21,13 @@ pt-BR:
       signed_in: 'Fez login com sucesso.'
       signed_out: 'Fez logout com sucesso.'
     passwords:
-      send_instructions: 'Dentro de minutos, receberá um email com as instruções de reinicialização da senha.'
+      send_instructions: 'Dentro de minutos, você receberá um email com as instruções de reinicialização da senha.'
       updated: 'A sua senha foi alterada com sucesso. Agora está conectado.'
     confirmations:
       send_instructions: 'Dentro de minutos, receberá um email com as instruções de confirmação da sua conta.'
       confirmed: 'A sua conta foi confirmada com sucesso. Agora está conectado.'
     registrations:
-      signed_up: 'Fez login com sucesso. Se não autorizado, a confirmação foi enviada por email.'
+      signed_up: 'Usuário registrado com sucesso. Dentro de minutos, você receberá um email com instruções para a confirmação do cadastro.'
       updated: 'A sua conta foi atualizada com sucesso.'
       destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
     unlocks:
