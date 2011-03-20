@@ -1,27 +1,28 @@
 <h1>Itens</h1>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Categoria</th>    
-	<th>Descricao</th>
-	<th>Preco</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @itens.each do |item| %>
-  <tr>
-    <td><%= item.nome %></td>
-    <td><%= item.categoria_id %></td>    
-	<td><%= item.descricao %></td>
-	<td><%= item.preco %></td>
-    <td><%= link_to 'Detalhes', item %></td>
-    <td><%= link_to 'Editar', edit_item_path(item) %></td>
-    <td><%= link_to 'Remover', item, :confirm => 'Deseja remover este item?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table class="tabela">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Categoria</th>    
+			<th>Descricao</th>
+			<th>Preco</th>    
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @itens.each do |item| %>
+			<tr>
+				<td><%= item.nome %></td>
+				<td><%= item.categoria.nome %></td>    
+				<td><%= item.descricao %></td>
+				<td><%= item.preco %></td>    
+				<td><%= link_to 'Editar', edit_item_path(item) %></td>
+				<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), item, :confirm => 'Deseja remover este item?', :method => :delete %></td>				
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br />

@@ -83,12 +83,16 @@ class CategoriasController < ApplicationController
 
   # DELETE /categorias/1
   # DELETE /categorias/1.xml
-  def destroy
+  def destroy	
     @categoria = Categoria.find(params[:id])
-    @categoria.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(categorias_url) }      
+	
+	respond_to do |format|	
+		if @categoria.itens.empty?
+			@categoria.destroy
+			format.html { redirect_to(categorias_url) }
+		else			
+			format.html { redirect_to(categorias_url, :alert => 'Não foi possível excluir a categoria "' + @categoria.nome + '", ela possui itens associados.') }
+		end	               
     end
   end  
 end

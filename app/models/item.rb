@@ -1,6 +1,11 @@
 class Item < ActiveRecord::Base
 	belongs_to :categoria
 	validates :nome, :length => { :maximum => 50 }
+	validates_presence_of :nome, :message => 'Nome deve ser preenchido'
+	validates_numericality_of :preco, :greater_than => 0, :message => 'O preço deve ser maior que zero'
+	
+	validates_presence_of :categoria_id
+	validates_associated :categoria
 	
 	has_attached_file :imagem, 
 		:storage => :s3,

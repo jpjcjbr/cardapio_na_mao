@@ -1,21 +1,23 @@
+<%= content_tag(:p, flash[:alert], :class => "error") if flash[:alert] %>
 <h1>Categorias</h1>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @categorias.each do |categoria| %>
-  <tr>
-    <td><%= categoria.nome %></td>
-    <td><%= link_to 'Detalhes', categoria %></td>
-    <td><%= link_to 'Editar', edit_categoria_path(categoria) %></td>
-    <td><%= link_to 'Remover', categoria, :confirm => 'Deseja remover esta categoria?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table class="tabela">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th></th>			
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @categorias.each do |categoria| %>
+			<tr>
+				<td><%= categoria.nome %></td>				
+				<td><%= link_to 'Editar', edit_categoria_path(categoria) %></td>
+				<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), categoria, :confirm => 'Deseja remover esta categoria?', :method => :delete %></td>
+			</tr>
+		<% end %>
+	<tbody>
 </table>
 
 <br />
