@@ -12,10 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+	<div>
+		<%= f.label :nome %>
+	</div>
+    <div>
+		<%= f.text_field :nome, :class => 'input' %>
+	</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <br/>
+  <div class="actions">    
+	<%= link_to image_tag('/images/botao/botao_voltar.png', :border => 0), :action => 'index'%>
+	<%= f.submit "Salvar", :src => '/images/botao/botao_salvar.png', :type => 'image' %>
   </div>
 <% end %>

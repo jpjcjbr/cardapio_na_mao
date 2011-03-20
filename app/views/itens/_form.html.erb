@@ -1,0 +1,62 @@
+<%= form_for(@item, :html => { :multipart => true }, :url => {:action => @operation}) do |f| %>
+
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+	<div>
+		<%= f.label :nome %>
+	</div>
+    <div>
+		<%= f.text_field :nome, :class => 'input' %>
+	</div>    
+  </div>
+  <div class="field">
+	<div>
+		<%= f.label :categoria_id %>
+	</div>
+    <div>
+		<%= f.collection_select(:categoria_id,
+			get_all_categorias_from_user(current_user),
+			:id, :nome, {:prompt => true}, {:class => 'input'}) %>		
+	</div>     
+  </div>
+  <div class="field">
+	<div>
+		<%= f.label :descricao %>
+	</div>
+    <div>
+		<%= f.text_field :descricao, :class => 'input' %>		
+	</div>    
+  </div>
+  <div class="field">
+	<div>
+		<%= f.label :preco %>
+	</div>
+    <div>
+		<%= f.text_field :preco, :class => 'input' %>		
+	</div>    
+  </div>
+  <div class="field">
+	<div>
+		<%= f.label :imagem %>
+	</div>
+    <div>
+		<%= f.file_field :imagem, :class => 'input' %>		
+	</div>    
+  </div>
+  <br/>
+  <div class="actions">    
+	<%= link_to image_tag('/images/botao/botao_voltar.png', :border => 0), :action => 'index'%>
+	<%= f.submit "Salvar", :src => '/images/botao/botao_salvar.png', :type => 'image' %>
+  </div>
+<% end %>

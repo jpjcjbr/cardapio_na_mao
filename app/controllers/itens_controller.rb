@@ -39,16 +39,16 @@ class ItensController < ApplicationController
   # GET /itens/new.xml
   def new
     @item = Item.new
-
+	@operation = 'create'
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @item }
+      format.html
     end
   end
 
   # GET /itens/1/edit
   def edit
     @item = Item.find(params[:id])
+	@operation = 'update'
   end
 
   # POST /itens
@@ -58,11 +58,9 @@ class ItensController < ApplicationController
 		
     respond_to do |format|
       if @item.save
-        format.html { redirect_to(@item, :notice => 'Item was successfully created.') }
-        format.xml  { render :xml => @item, :status => :created, :location => @item }
+        format.html { redirect_to(itens_url, :notice => 'Item criado com sucesso.') }        
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
+        format.html { render :action => "new" }        
       end
     end
   end
@@ -74,11 +72,9 @@ class ItensController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to(@item, :notice => 'Item was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(itens_url, :notice => 'Item atualizado com sucesso.') }        
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -43,8 +43,7 @@ class CategoriasController < ApplicationController
     @categoria = Categoria.new
 	
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @categoria }
+      format.html      
     end
   end
 
@@ -61,11 +60,9 @@ class CategoriasController < ApplicationController
 
     respond_to do |format|
       if @categoria.save
-        format.html { redirect_to(@categoria, :notice => 'Categoria was successfully created.') }
-        format.xml  { render :xml => @categoria, :status => :created, :location => @categoria }
+        format.html { redirect_to(categorias_url, :notice => 'Categoria criada com sucesso.') }        
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @categoria.errors, :status => :unprocessable_entity }
+        format.html { render :action => "new" }        
       end
     end
   end
@@ -77,11 +74,9 @@ class CategoriasController < ApplicationController
 
     respond_to do |format|
       if @categoria.update_attributes(params[:categoria])
-        format.html { redirect_to(@categoria, :notice => 'Categoria was successfully updated.') }
-        format.xml  { head :ok }
+        format.html { redirect_to(categorias_url, :notice => 'Categoria alterada com sucesso.') }        
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @categoria.errors, :status => :unprocessable_entity }
+        format.html { render :action => "edit" }        
       end
     end
   end
@@ -93,8 +88,7 @@ class CategoriasController < ApplicationController
     @categoria.destroy
 
     respond_to do |format|
-      format.html { redirect_to(categorias_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to(categorias_url) }      
     end
   end  
 end

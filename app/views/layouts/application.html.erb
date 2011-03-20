@@ -14,7 +14,7 @@
 	<% if content_for? :login %>
 		<%= yield :login %>
 	<% else %>
-		<div id="adminNavsWrapper">
+		<div class="adminNavsWrapper">
 			<div class="adminNavs">
 				<ul>					
 					<li id="adminNavsOn2">
@@ -61,7 +61,7 @@
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
-		<div id="case">
+		<div class="case">
 			<div class="shadowHeader">
 				<div class="shadowMidLeft">
 					<div id="header">
@@ -81,8 +81,9 @@
 			<div class="shadowBottomLeft">
 				<div class="shadowMidLeft">
 				</div>
-			</div>
-		</div>		
+			</div>			
+		</div>
+		
 	<% end %>	
 	<%= javascript_include_tag :defaults %>
 	<!--[if lte IE 6]>
