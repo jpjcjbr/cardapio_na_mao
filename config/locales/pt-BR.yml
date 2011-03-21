@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: " deve ser preenchido."
+              taken: " já foi utilizado."
+              invalid: " inválido."
+            password:
+              blank: " deve ser preenchida."
+              confirmation: " deve ser preenchida."

@@ -30,6 +30,7 @@
 			<h1>Novo Usuário</h1>
 			<div id="loginForm">
 				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+					<%= show_devise_error_messages! %>
 					<%= content_tag(:p, flash[:alert], :class => "error") if flash[:alert] %>
 					<%= content_tag(:p, flash[:notice], :class => "success") if flash[:notice] %>					
 					
