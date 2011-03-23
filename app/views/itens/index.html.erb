@@ -1,37 +1,38 @@
 <h1>Itens</h1>
 
-<% if @itens.empty? %>
-	<p>Nenhum item cadastrado.</p>
-<% else %>
-	<table class="tabela">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Categoria</th>    
-				<th>Descrição</th>
-				<th>Preço</th>    
-				<th class="icones_tabela"></th>
-				<th class="icones_tabela"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @itens.each do |item| %>
+<div class="wrapper_tabela">
+	<% if @itens.empty? %>
+		<p>Nenhum item cadastrado.</p>
+	<% else %>
+		<table class="tabela">
+			<thead>
 				<tr>
-					<td><%= item.nome %></td>
-					<td><%= item.categoria.nome %></td>    
-					<td><%= item.descricao %></td>
-					<td><%= moeda item.preco%></td>    
-					<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_item_path(item) %></td>
-					<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), item, :confirm => 'Deseja remover este item?', :method => :delete %></td>				
+					<th>Nome</th>
+					<th>Categoria</th>    
+					<th>Descrição</th>
+					<th>Preço</th>    
+					<th class="icones_tabela"></th>
+					<th class="icones_tabela"></th>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% end %>
-<br />
+			</thead>
+			<tbody>
+				<% @itens.each do |item| %>
+					<tr>
+						<td><%= item.nome %></td>
+						<td><%= item.categoria.nome %></td>    
+						<td><%= item.descricao %></td>
+						<td><%= moeda item.preco%></td>    
+						<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_item_path(item) %></td>
+						<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), item, :confirm => 'Deseja remover este item?', :method => :delete %></td>				
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+	<br />
 
-<%= will_paginate @itens %>
-
-<br />
+	<%= will_paginate @itens, :next_label => "Próximo >>", :previous_label => "<< Anterior"%>
+</div>
+	<br />
 
 <%= link_to image_tag('/images/botao/botao_novo.png', :border => 0), :action => 'new'%>
