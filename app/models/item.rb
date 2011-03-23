@@ -1,4 +1,5 @@
-class Item < ActiveRecord::Base
+class Item < ActiveRecord::Base	
+		
 	belongs_to :categoria
 	validates :nome, :length => { :maximum => 50 }
 	validates_presence_of :nome, :message => 'Nome deve ser preenchido'
@@ -20,5 +21,5 @@ class Item < ActiveRecord::Base
 			''
 		end
 	end
-		
+			
 end

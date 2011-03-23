@@ -1,3 +1,16 @@
+<%= content_for :js do%>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#item_preco').priceFormat({
+				prefix: 'R$ ',
+				centsSeparator: ',',
+				thousandsSeparator: '',
+				centsLimit: 2
+			});
+		});
+	</script>	
+<% end %>
+
 <%= form_for(@item, :html => { :multipart => true }, :url => {:action => @operation}) do |f| %>
 
   <% if @item.errors.any? %>
