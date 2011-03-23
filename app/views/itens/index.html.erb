@@ -20,7 +20,7 @@
 					<td><%= item.nome %></td>
 					<td><%= item.categoria.nome %></td>    
 					<td><%= item.descricao %></td>
-					<td><%= item.preco %></td>    
+					<td><%= moeda item.preco%></td>    
 					<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_item_path(item) %></td>
 					<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), item, :confirm => 'Deseja remover este item?', :method => :delete %></td>				
 				</tr>
