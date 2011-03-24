@@ -1,33 +1,35 @@
 <h1>Categorias</h1>
 
-<%= content_tag(:p, flash[:alert], :class => "error") if flash[:alert] %>
+<div class="wrapper_tabela">
+	<%= content_tag(:p, flash[:alert], :class => "error") if flash[:alert] %>
 
-<% if @categorias.empty? %>
-	<p>Nenhuma categoria cadastrada.</p>
-<% else %>
-	<table class="tabela">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th class="icones_tabela"></th>			
-				<th class="icones_tabela"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @categorias.each do |categoria| %>
+	<% if @categorias.empty? %>
+		<p>Nenhuma categoria cadastrada.</p>
+	<% else %>
+		<table class="tabela">
+			<thead>
 				<tr>
-					<td><%= categoria.nome %></td>				
-					<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_categoria_path(categoria) %></td>
-					<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), categoria, :confirm => 'Deseja remover esta categoria?', :method => :delete %></td>
+					<th>Nome</th>
+					<th class="icones_tabela"></th>			
+					<th class="icones_tabela"></th>
 				</tr>
-			<% end %>
-		<tbody>
-	</table>
-<% end %>
+			</thead>
+			<tbody>
+				<% @categorias.each do |categoria| %>
+					<tr>
+						<td><%= categoria.nome %></td>				
+						<td><%= link_to image_tag('/images/botao/editar.png', :border => 0), edit_categoria_path(categoria) %></td>
+						<td><%= link_to image_tag('/images/botao/trash.gif', :border => 0), categoria, :confirm => 'Deseja remover esta categoria?', :method => :delete %></td>
+					</tr>
+				<% end %>
+			<tbody>
+		</table>
+	<% end %>
 
-<br />
+	<br />
 
-<%= will_paginate @categorias %>
+	<%= will_paginate @itens, :next_label => "Próximo >>", :previous_label => "<< Anterior"%>
+</div>
 
 <br />
 
