@@ -6,6 +6,7 @@ gem 'devise'
 gem 'aws-s3'
 gem 'paperclip'
 gem 'will_paginate'
+gem 'jquery-rails', '>= 0.2.6'
 
 group :development do
   gem 'rspec-rails', '2.5.0'  
