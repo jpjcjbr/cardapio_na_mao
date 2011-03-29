@@ -41,6 +41,7 @@ class ItensController < ApplicationController
   def new
     @item = Item.new
 	@operation = 'create'
+	@tamanho_maximo_upload = 500.kilobytes
     respond_to do |format|
       format.html
     end
@@ -50,6 +51,7 @@ class ItensController < ApplicationController
   def edit
     @item = Item.find(params[:id])
 	@operation = 'update'
+	@tamanho_maximo_upload = 500.kilobytes
   end
 
   # POST /itens
