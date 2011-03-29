@@ -1,5 +1,9 @@
 pt-BR:
-  activerecord:
+  activerecord:    
+    attributes:
+      user:
+        password: "Senha"
+        reset_password_token: "Token"
     errors:
       models:
         user:
@@ -10,4 +14,6 @@ pt-BR:
               invalid: " inválido."
             password:
               blank: " deve ser preenchida."
-              confirmation: " deve ser preenchida."
+              confirmation: " não confere com a confirmação."
+            reset_password_token:
+              blank: "inválido."

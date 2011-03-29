@@ -4,10 +4,19 @@
 
 <%= content_for :js do%>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			$("input").val('');			
+		$(document).ready(function(){			
+			$("#user_password").val('');
+			$("#user_password_confirmation").val('');			
+			$("#user_password").select();
 		});
 	</script>
+	<!--[if IE]>
+	<script>
+		$(document).ready(function(){
+			$("#user_password").focus();
+		});
+	</script>
+	<![endif]-->
 <% end %>
 
 <%= content_for :login do %>
