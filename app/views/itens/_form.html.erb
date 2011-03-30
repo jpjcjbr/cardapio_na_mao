@@ -1,6 +1,7 @@
 <%= content_for :js do%>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$('#item_nome').select();
 			$('#item_preco').priceFormat({
 				prefix: 'R$ ',
 				centsSeparator: ',',
@@ -33,7 +34,14 @@
 				}				
 			});
 		});
-	</script>	
+	</script>
+	<!--[if IE]>
+	<script>
+		$(document).ready(function(){
+			$("#item_nome").focus();
+		});
+	</script>
+	<![endif]-->
 <% end %>
 
 <%= form_for(@item, :html => { :multipart => true }, :url => {:action => @operation}) do |f| %>
