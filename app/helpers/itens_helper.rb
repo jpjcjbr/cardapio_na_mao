@@ -22,4 +22,8 @@ module ItensHelper
 		
 		itens		
 	end
+	
+	def self.tamanho_maximo_upload
+		500.kilobytes
+	end
 end

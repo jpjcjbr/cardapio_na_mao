@@ -60,7 +60,7 @@ class CategoriasController < ApplicationController
 
     respond_to do |format|
       if @categoria.save
-        format.html { redirect_to(categorias_url, :notice => 'Categoria criada com sucesso.') }        
+        format.html { redirect_to(categorias_url, :notice => 'Categoria cadastrada com sucesso.') }        
       else
         format.html { render :action => "new" }        
       end
@@ -89,7 +89,7 @@ class CategoriasController < ApplicationController
 	respond_to do |format|	
 		if @categoria.itens.empty?
 			@categoria.destroy
-			format.html { redirect_to(categorias_url) }
+			format.html { redirect_to(categorias_url, :notice => 'Categoria excluída com sucesso.') }
 		else			
 			format.html { redirect_to(categorias_url, :alert => 'Não foi possível excluir a categoria "' + @categoria.nome + '", ela possui itens associados.') }
 		end	               

@@ -1,7 +1,7 @@
 class ItensController < ApplicationController
 	before_filter :remover_currency, :only => [:create, :update]
 	before_filter :authenticate_user!, :except => [:all_itens_from_user]	
-	respond_to :html, :xml, :json
+	respond_to :html, :xml, :json			
 	
   # GET /itens
   # GET /itens.xml
@@ -24,7 +24,7 @@ class ItensController < ApplicationController
 		@itens = get_itens_from_user_by_date user, data
 		respond_with @itens		
 	else
-		respond_with '{"erro":"Usu·rio Inv·lido."}'
+		respond_with '{"erro":"Usu√°rio Inv√°lido."}'
 	end	
   end
 
@@ -40,8 +40,7 @@ class ItensController < ApplicationController
   # GET /itens/new.xml
   def new
     @item = Item.new
-	@operation = 'create'
-	@tamanho_maximo_upload = 500.kilobytes
+	@operation = 'create'	
     respond_to do |format|
       format.html
     end
@@ -50,8 +49,7 @@ class ItensController < ApplicationController
   # GET /itens/1/edit
   def edit
     @item = Item.find(params[:id])
-	@operation = 'update'
-	@tamanho_maximo_upload = 500.kilobytes
+	@operation = 'update'	
   end
 
   # POST /itens
@@ -61,7 +59,7 @@ class ItensController < ApplicationController
 		
     respond_to do |format|
       if @item.save
-        format.html { redirect_to(itens_url, :notice => 'Item criado com sucesso.') }        
+        format.html { redirect_to(itens_url, :notice => 'Item cadastrado com sucesso.') }        
       else
         format.html { render :action => "new" }        
       end
@@ -89,7 +87,7 @@ class ItensController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(itens_url) }
+      format.html { redirect_to(itens_url, :notice => 'Item exclu√≠do com sucesso.') }
       format.xml  { head :ok }
     end
   end

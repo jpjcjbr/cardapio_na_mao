@@ -10,7 +10,7 @@
 			
 			$('#new_item').submit(function(){
 				var arquivo = $('#item_imagem').get(0);
-				if(arquivo.files[0].size > <%= @tamanho_maximo_upload%>)
+				if(arquivo.files[0].size > <%= ItensHelper.tamanho_maximo_upload %>)
 				{
 					alert('Tamanho máximo para as imagens é 500kb.');
 					return false;
@@ -39,8 +39,8 @@
 <%= form_for(@item, :html => { :multipart => true }, :url => {:action => @operation}) do |f| %>
 
   <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+    <div class="error_explanation">
+      <h2>Erro ao cadastrar item:</h2>
 
       <ul>
       <% @item.errors.full_messages.each do |msg| %>

@@ -4,6 +4,8 @@ pt-BR:
       user:
         password: "Senha"
         reset_password_token: "Token"
+      item:
+        preco: "Preço"
     errors:
       models:
         user:
@@ -17,3 +19,15 @@ pt-BR:
               confirmation: " não confere com a confirmação."
             reset_password_token:
               blank: "inválido."
+        item:
+          attributes:
+            categoria_id:
+              blank: "deve ser selecionada."
+        categoria:
+          attributes:
+            nome:
+              taken: "da Categoria já existente."
+        item:
+          attributes:
+            nome:
+              taken: "do Item já existente."

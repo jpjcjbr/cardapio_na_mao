@@ -1,6 +1,8 @@
 <h1>Itens</h1>
 
 <div class="wrapper_tabela">
+	<%= content_tag(:p, flash[:alert], :class => "error") if flash[:alert] %>
+	<%= content_tag(:p, flash[:notice], :class => "success") if flash[:notice] %>
 	<% if @itens.empty? %>
 		<p>Nenhum item cadastrado.</p>
 	<% else %>

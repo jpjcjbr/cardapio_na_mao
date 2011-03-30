@@ -2,6 +2,7 @@
 
 <div class="wrapper_tabela">
 	<%= content_tag(:p, flash[:alert], :class => "error") if flash[:alert] %>
+	<%= content_tag(:p, flash[:notice], :class => "success") if flash[:notice] %>
 
 	<% if @categorias.empty? %>
 		<p>Nenhuma categoria cadastrada.</p>
