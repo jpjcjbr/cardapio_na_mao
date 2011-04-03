@@ -1,6 +1,7 @@
 <%= content_for :js do%>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$('#campo_arquivo').hide();
 			$('#item_nome').select();
 			$('#item_preco').priceFormat({
 				prefix: 'R$ ',
@@ -96,12 +97,18 @@
 	<div>
 		<%= f.label :imagem %>
 	</div>
-    <div>
-		<%= f.file_field :imagem, :class => 'input' %>		
-	</div>
-	<% unless @item.url_imagem.empty? %>
+	<% if @item.url_imagem.empty? %>
 		<div>
+			<%= f.file_field :imagem, :class => 'input' %>		
+		</div>
+	<% else %>
+		<div id="div_imagem">
 			<%= image_tag @item.imagem.url(:thumb) %>
+			<%= link_to_function "Trocar Imagem", "$('#campo_arquivo').show();$('#div_imagem').hide();"%>
+		</div>
+		<div id="campo_arquivo">
+			<%= f.file_field :imagem, :class => 'input' %>		
+			<%= link_to_function "Cancelar", "$('#campo_arquivo').hide();$('#div_imagem').show();"%>
 		</div>
 	<% end %>	
   </div>

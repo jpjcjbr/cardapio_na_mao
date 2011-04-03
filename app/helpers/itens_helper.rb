@@ -20,7 +20,7 @@ module ItensHelper
 			end		
 		end
 		
-		itens		
+		itens.sort! { |a, b| a.nome.downcase <=> b.nome.downcase }		
 	end
 	
 	def self.tamanho_maximo_upload
