@@ -98,7 +98,12 @@
 	</div>
     <div>
 		<%= f.file_field :imagem, :class => 'input' %>		
-	</div>    
+	</div>
+	<% unless @item.url_imagem.empty? %>
+		<div>
+			<%= image_tag @item.imagem.url(:thumb) %>
+		</div>
+	<% end %>	
   </div>
   <br/>
   <div class="actions">    
