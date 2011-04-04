@@ -12,27 +12,30 @@
 			
 			$('#new_item').submit(function(){
 				var arquivo = $('#item_imagem').get(0);
-				if(arquivo.files[0].size > <%= ItensHelper.tamanho_maximo_upload %>)
+				if(arquivo.files != null && arquivo.files.length > 0)
 				{
-					alert('Tamanho máximo para as imagens é 500kb.');
-					return false;
-				}
-				else
-				{
-					var isPNG = arquivo.files[0].name.match('jpg$');
-					var isBMP = arquivo.files[0].name.match('bmp$');
-					var isGIF = arquivo.files[0].name.match('gif$');
-					var isPNG = arquivo.files[0].name.match('png$');
-					if(isPNG || isBMP || isGIF || isPNG)
+					if(arquivo.files[0].size > <%= ItensHelper.tamanho_maximo_upload %>)
 					{
-						return true;						
+						alert('Tamanho máximo para as imagens é 500kb.');
+						return false;
 					}
 					else
 					{
-						alert('Extensão inválida para o arquivo.');
-						return false;
+						var isPNG = arquivo.files[0].name.match('jpg$');
+						var isBMP = arquivo.files[0].name.match('bmp$');
+						var isGIF = arquivo.files[0].name.match('gif$');
+						var isPNG = arquivo.files[0].name.match('png$');
+						if(isPNG || isBMP || isGIF || isPNG)
+						{
+							return true;						
+						}
+						else
+						{
+							alert('Extensão inválida para o arquivo.');
+							return false;
+						}
 					}
-				}				
+				}
 			});
 		});
 	</script>
@@ -113,8 +116,8 @@
 	<% end %>	
   </div>
   <br/>
-  <div class="actions">    
-	<%= link_to image_tag('/images/botao/botao_voltar.png', :border => 0), :action => 'index'%>
-	<%= f.submit "Salvar", :src => '/images/botao/botao_salvar.png', :type => 'image' %>
+  <div class="actions">    		
+	<%= link_to "Voltar", {:action => 'index'}, {:class => 'button white'} %>
+	<%= link_to_function "Salvar", "$('form').submit()" ,{:class => 'button white'} %>
   </div>
 <% end %>

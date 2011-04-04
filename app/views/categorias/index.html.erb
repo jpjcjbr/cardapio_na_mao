@@ -31,7 +31,4 @@
 
 	<%= will_paginate @itens, :next_label => "Próximo >>", :previous_label => "<< Anterior"%>
 </div>
-
-<br />
-
-<%= link_to image_tag('/images/botao/botao_novo.png', :border => 0), :action => 'new'%>
+<%= link_to "Nova", {:action => 'new'}, {:class => 'button white'} %>

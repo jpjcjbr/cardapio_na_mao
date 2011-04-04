@@ -38,7 +38,7 @@
   </div>
   <br/>
   <div class="actions">    
-	<%= link_to image_tag('/images/botao/botao_voltar.png', :border => 0), :action => 'index'%>
-	<%= f.submit "Salvar", :src => '/images/botao/botao_salvar.png', :type => 'image' %>
+	<%= link_to "Voltar", {:action => 'index'}, {:class => 'button white'} %>
+	<%= link_to_function "Salvar", "$('form').submit()" ,{:class => 'button white'} %>	
   </div>
 <% end %>
