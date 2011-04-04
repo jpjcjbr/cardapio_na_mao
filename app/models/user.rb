@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :categorias
+	has_many :categorias, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable
