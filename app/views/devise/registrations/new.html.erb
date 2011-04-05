@@ -10,6 +10,13 @@
 			$("form").submit(function(){
 				$("#user_email").val(jQuery.trim($("#user_email").val()));
 			});
+			
+			$('form').keyup(function(e){
+				if(e.keyCode == 13)
+				{
+					$('#btnSubmit').click();
+				}
+			});
 						
 			$("input").val('');					
 		});
@@ -44,7 +51,7 @@
 					<dd><%= f.password_field :password_confirmation, :class => 'input' %></dd>
 					
 					<dd class="alteracaosenha">						
-						<%= link_to_function "Registrar", "$('form').submit()" ,{:class => 'button white'} %>	
+						<%= link_to_function "Registrar", "$('form').submit()" ,{:class => 'button white', :id => 'btnSubmit'} %>	
 					</dd>				
 				<% end %>
 			</div>

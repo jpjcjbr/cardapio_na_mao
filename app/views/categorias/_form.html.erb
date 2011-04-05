@@ -1,7 +1,14 @@
 <%= content_for :js do%>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#categoria_nome').select();			
+			$('#categoria_nome').select();	
+
+			$('form').keyup(function(e){
+				if(e.keyCode == 13)
+				{
+					$('#btnSubmit').click();
+				}
+			});
 		});
 	</script>
 	<!--[if IE]>
@@ -39,6 +46,6 @@
   <br/>
   <div class="actions">    
 	<%= link_to "Voltar", {:action => 'index'}, {:class => 'button white'} %>
-	<%= link_to_function "Salvar", "$('form').submit()" ,{:class => 'button white'} %>	
+	<%= link_to_function "Salvar", "$('form').submit()" ,{:class => 'button white', :id => 'btnSubmit'} %>	
   </div>
 <% end %>

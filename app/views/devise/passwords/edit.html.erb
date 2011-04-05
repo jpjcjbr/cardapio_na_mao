@@ -8,6 +8,13 @@
 			$("#user_password").val('');
 			$("#user_password_confirmation").val('');			
 			$("#user_password").select();
+			
+			$('form').keyup(function(e){
+				if(e.keyCode == 13)
+				{
+					$('#btnSubmit').click();
+				}
+			});
 		});
 	</script>
 	<!--[if IE]>
@@ -35,7 +42,7 @@
 					<dd><%= f.password_field :password_confirmation, :class => 'input' %></dd>									
 										
 					<dd class="alteracaosenha">						
-						<%= link_to_function "Trocar Senha", "$('form').submit()" ,{:class => 'button white'} %>	
+						<%= link_to_function "Trocar Senha", "$('form').submit()" ,{:class => 'button white', :id => 'btnSubmit'} %>						
 					</dd>				
 				<% end %>
 			</div>

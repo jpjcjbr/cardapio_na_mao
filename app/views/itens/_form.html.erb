@@ -10,6 +10,13 @@
 				centsLimit: 2
 			});
 			
+			$('form').keyup(function(e){
+				if(e.keyCode == 13)
+				{
+					$('#btnSubmit').click();
+				}
+			});
+			
 			$('#new_item').submit(function(){
 				var arquivo = $('#item_imagem').get(0);
 				if(arquivo.files != null && arquivo.files.length > 0)
@@ -118,6 +125,6 @@
   <br/>
   <div class="actions">    		
 	<%= link_to "Voltar", {:action => 'index'}, {:class => 'button white'} %>
-	<%= link_to_function "Salvar", "$('form').submit()" ,{:class => 'button white'} %>
+	<%= link_to_function "Salvar", "$('form').submit()" ,{:class => 'button white', :id => 'btnSubmit'} %>	
   </div>
 <% end %>

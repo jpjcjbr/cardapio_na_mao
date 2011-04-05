@@ -2,6 +2,20 @@
 	<%= stylesheet_link_tag "login" %>		
 <% end %>
 
+<%= content_for :js do%>
+	<script type="text/javascript">
+		$(document).ready(function(){						
+			
+			$('form').keyup(function(e){
+				if(e.keyCode == 13)
+				{
+					$('#btnSubmit').click();
+				}
+			});
+		});
+	</script>	
+<% end %>
+
 <%= content_for :login do %>
 	<div id="additional"></div>
 	<div id="formWrapper">
@@ -16,7 +30,7 @@
 					<dd><%= f.text_field :email, :class => 'input'%></dd>
 										
 					<dd>						
-						<%= link_to_function "Resetar Senha", "$('form').submit()" ,{:class => 'button white'} %>	
+						<%= link_to_function "Resetar Senha", "$('form').submit()" ,{:class => 'button white', :id => 'btnSubmit'} %>	
 					</dd>				
 				<% end %>
 			</div>
