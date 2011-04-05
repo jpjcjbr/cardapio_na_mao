@@ -15,7 +15,9 @@
 					<dt><%= f.label :email, 'E-mail' %></dt>
 					<dd><%= f.text_field :email, :class => 'input'%></dd>
 										
-					<dd><%= f.submit "Resetar senha", :src => '/images/botao/botao_resetar_senha.png', :type => 'image' %></dd>				
+					<dd>						
+						<%= link_to_function "Resetar Senha", "$('form').submit()" ,{:class => 'button white'} %>	
+					</dd>				
 				<% end %>
 			</div>
 		</div>

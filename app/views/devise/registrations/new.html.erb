@@ -43,7 +43,9 @@
 					<dt class="alteracaosenha"><%= f.label :password_confirmation, 'Confirmação' %></dt>
 					<dd><%= f.password_field :password_confirmation, :class => 'input' %></dd>
 					
-					<dd class="alteracaosenha"><%= f.submit "Registrar", :src => '/images/botao/botao_registrar.png', :type => 'image' %></dd>				
+					<dd class="alteracaosenha">						
+						<%= link_to_function "Registrar", "$('form').submit()" ,{:class => 'button white'} %>	
+					</dd>				
 				<% end %>
 			</div>
 		</div>

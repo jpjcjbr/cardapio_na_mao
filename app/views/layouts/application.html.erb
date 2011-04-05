@@ -6,8 +6,9 @@
   <% if content_for? :css %>
 		<%= yield :css %>		
 	<% else %>			
-		<%= stylesheet_link_tag "main" %>
-	<% end %>	
+		<%= stylesheet_link_tag "main" %>		
+	<% end %>
+	<%= stylesheet_link_tag "botao" %>
   <%= csrf_meta_tag %>  	
 </head>
 <body id="admin" class="clientdashboard">	
