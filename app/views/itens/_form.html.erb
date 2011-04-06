@@ -28,11 +28,11 @@
 					}
 					else
 					{
-						var isPNG = arquivo.files[0].name.match('jpg$');
+						var isJPG = arquivo.files[0].name.match('jpg$');
 						var isBMP = arquivo.files[0].name.match('bmp$');
 						var isGIF = arquivo.files[0].name.match('gif$');
 						var isPNG = arquivo.files[0].name.match('png$');
-						if(isPNG || isBMP || isGIF || isPNG)
+						if(isJPG || isBMP || isGIF || isPNG)
 						{
 							return true;						
 						}
