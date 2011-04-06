@@ -14,8 +14,7 @@ class Item < ActiveRecord::Base
 		:s3_credentials => Rails.root.join('config/s3.yml'),
 		:path => "/:style/:id",
 		:styles => { :medium => "300x300>", :thumb => "100x100#", :original => "800x600>" }
-			
-	#validates_attachment_content_type :imagem, :content_type => [ 'image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/jpg' ]
+				
 	validates_attachment_size :imagem, :less_than => 500.kilobytes		
 	
 	def url_imagem
@@ -24,6 +23,5 @@ class Item < ActiveRecord::Base
 		else
 			''
 		end
-	end
-			
+	end	
 end

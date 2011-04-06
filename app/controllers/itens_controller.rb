@@ -1,6 +1,6 @@
 class ItensController < ApplicationController
-	before_filter :remover_currency, :only => [:create, :update]
-	before_filter :authenticate_user!, :except => [:all_itens_from_user]	
+	before_filter :remover_currency, :only => [:create, :update]	
+	before_filter :authenticate_user!, :except => [:all_itens_from_user]
 	respond_to :html, :xml, :json			
 	
   # GET /itens
@@ -49,6 +49,7 @@ class ItensController < ApplicationController
   # GET /itens/1/edit
   def edit
     @item = Item.find(params[:id])
+	
 	@operation = 'update'	
   end
 
@@ -95,5 +96,5 @@ class ItensController < ApplicationController
   protected
   def remover_currency	
 	params[:item][:preco] = params[:item][:preco].to_s.gsub(/[^0-9,]/,'').gsub(/,/,'.').to_f	
-  end
+  end   
 end
