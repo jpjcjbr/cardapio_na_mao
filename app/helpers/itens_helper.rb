@@ -1,12 +1,13 @@
 module ItensHelper
-	def get_all_itens_from_user(user)
-	
+	def get_all_itens_from_user(user)	
 		get_itens_from_user_by_date user, Time.at(0)
 	end
 	
 	def get_itens_from_user_by_date(user, date)
 	
 		itens = Array.new
+		
+		return itens if user == nil
 	
 		if user.categorias		
 			user.categorias.each do |categoria|					

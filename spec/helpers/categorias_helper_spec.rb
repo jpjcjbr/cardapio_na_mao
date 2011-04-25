@@ -1,15 +1,26 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the CategoriaHelper. For example:
-#
-# describe CategoriaHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe CategoriasHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "deve retornar todos as categorias de um usuario" do
+    user = Factory(:user)
+    
+    grupo3 = Grupo.create(:nome => 'grupo3', :user_id => user.id)    
+    grupo1 = Grupo.create(:nome => 'grupo', :user_id => user.id)
+    grupo2 = Grupo.create(:nome => 'grupo2', :user_id => user.id)
+    
+    resultado = helper.get_all_grupos_from_user user
+    
+    resultado.should_not be_nil
+    resultado.should_not be_empty
+    resultado.length.should == 3
+    resultado[0].should == grupo1
+    resultado[1].should == grupo2
+    resultado[2].should == grupo3
+  end
+  
+  it "deve retornar um array vazio se o usuario passado for nulo" do
+    resultado = helper.get_all_grupos_from_user nil
+    resultado.should_not be_nil
+    resultado.should be_empty
+  end
 end
