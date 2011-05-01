@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe Categoria do
   
+  it "deve pertencer a um usuario" do
+    Categoria.new.should respond_to(:user)
+  end
+  
+  it "deve ter muitos itens" do
+    Categoria.new.should respond_to(:itens)
+  end
+  
   it "deve criar uma nova instancia" do    
     user = Factory(:user)
     

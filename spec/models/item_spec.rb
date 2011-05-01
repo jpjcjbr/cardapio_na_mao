@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Item do
   
+  it "deve pertencer a uma categoria" do
+    Item.new.should respond_to(:categoria)
+  end
+  
   it "deve criar uma nova instancia" do
     categoria = Factory(:categoria)
     
