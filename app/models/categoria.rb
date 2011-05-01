@@ -5,6 +5,7 @@ class Categoria < ActiveRecord::Base
 	validates_presence_of :nome, :message => ' deve ser preenchido.'	
 	
 	validates_presence_of :user_id
+	validates_presence_of :user
 	validates_associated :user
 
 	validates_uniqueness_of :nome, :case_sensitive => false, :scope => [:user_id]

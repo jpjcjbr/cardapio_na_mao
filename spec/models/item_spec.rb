@@ -38,7 +38,7 @@ describe Item do
   it "pode possuir o mesmo nome para categorias diferentes" do
     item1 = Factory(:item, :nome => 'item1')
     
-    novo_item = Item.new(:nome => 'item1')
+    novo_item = Item.new(:nome => 'item1', :preco => 10)
     novo_item.categoria = Factory(:categoria, :nome => 'categoriaestranha')
     
     lambda{

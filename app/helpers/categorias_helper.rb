@@ -4,6 +4,9 @@ module CategoriasHelper
 	end
 	
 	def get_categorias_from_user_by_date(user, date)
+	  
+	  return Array.new if user == nil
+	 
 		categorias = Categoria.order('nome ASC').where('updated_at > ?', date).find_all_by_user_id user.id
 
 		if categorias == nil
