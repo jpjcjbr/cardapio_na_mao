@@ -1,20 +1,16 @@
 class CategoriasController < ApplicationController
   before_filter :authenticate_user!, :except => [:all_categorias_from_user]
+  before_filter :remove_json_root!, :only => [:index, :all_categorias_from_user, :show]
 
   respond_to :html, :xml, :json
-  # GET /categorias
-  # GET /categorias.xml
+  
   def index
-    ActiveRecord::Base.include_root_in_json = false
-
     @categorias = get_all_categorias_from_user(current_user).paginate :page => params['page'], :per_page => 10
 
     respond_with @categorias
   end
 
   def all_categorias_from_user
-    ActiveRecord::Base.include_root_in_json = false
-
     user = User.find_by_email params[:email]
 
     data = convert_date_to_appropriate_format params[:data]
@@ -27,17 +23,11 @@ class CategoriasController < ApplicationController
     end
   end
 
-  # GET /categorias/1
-  # GET /categorias/1.xml
   def show
-    ActiveRecord::Base.include_root_in_json = false
     @categoria = Categoria.find(params[:id])
-
     respond_with @categoria
   end
 
-  # GET /categorias/new
-  # GET /categorias/new.xml
   def new
     @categoria = Categoria.new
 
@@ -46,13 +36,10 @@ class CategoriasController < ApplicationController
     end
   end
 
-  # GET /categorias/1/edit
   def edit
     @categoria = Categoria.find(params[:id])
   end
 
-  # POST /categorias
-  # POST /categorias.xml
   def create
     @categoria = Categoria.new(params[:categoria])
     @categoria.user = current_user
@@ -66,8 +53,6 @@ class CategoriasController < ApplicationController
     end
   end
 
-  # PUT /categorias/1
-  # PUT /categorias/1.xml
   def update
     @categoria = Categoria.find(params[:id])
 
@@ -80,8 +65,6 @@ class CategoriasController < ApplicationController
     end
   end
 
-  # DELETE /categorias/1
-  # DELETE /categorias/1.xml
   def destroy
     @categoria = Categoria.find(params[:id])
 

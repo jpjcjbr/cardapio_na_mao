@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   include CategoriasHelper
   include ItensHelper
   include DateHelper
+  include JsonHelper
 end

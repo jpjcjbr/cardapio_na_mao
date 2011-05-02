@@ -1,20 +1,16 @@
 class ItensController < ApplicationController
   before_filter :remover_currency, :only => [:create, :update]
   before_filter :authenticate_user!, :except => [:all_itens_from_user]
+  before_filter :remove_json_root!, :only => [:index, :all_itens_from_user, :show]
+  
   respond_to :html, :xml, :json
-  # GET /itens
-  # GET /itens.xml
+  
   def index
-    ActiveRecord::Base.include_root_in_json = false
-
     @itens = get_all_itens_from_user(current_user).paginate :page => params['page'], :per_page => 10
-
     respond_with @itens
   end
 
   def all_itens_from_user
-    ActiveRecord::Base.include_root_in_json = false
-
     user = User.find_by_email params[:email]
 
     data = convert_date_to_appropriate_format params[:data]
@@ -27,16 +23,11 @@ class ItensController < ApplicationController
     end
   end
 
-  # GET /itens/1
-  # GET /itens/1.xml
   def show
-    ActiveRecord::Base.include_root_in_json = false
     @item = Item.find(params[:id])
     respond_with @item
   end
 
-  # GET /itens/new
-  # GET /itens/new.xml
   def new
     @item = Item.new
     @operation = 'create'
@@ -45,15 +36,11 @@ class ItensController < ApplicationController
     end
   end
 
-  # GET /itens/1/edit
   def edit
     @item = Item.find(params[:id])
-
     @operation = 'update'
   end
 
-  # POST /itens
-  # POST /itens.xml
   def create
     @item = Item.new(params[:item])
 
@@ -66,8 +53,6 @@ class ItensController < ApplicationController
     end
   end
 
-  # PUT /itens/1
-  # PUT /itens/1.xml
   def update
     @item = Item.find(params[:id])
 
@@ -80,8 +65,6 @@ class ItensController < ApplicationController
     end
   end
 
-  # DELETE /itens/1
-  # DELETE /itens/1.xml
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
@@ -93,7 +76,6 @@ class ItensController < ApplicationController
   end
 
   protected
-
   def remover_currency
     params[:item][:preco] = params[:item][:preco].to_s.gsub(/[^0-9,]/,'').gsub(/,/,'.').to_f
   end
