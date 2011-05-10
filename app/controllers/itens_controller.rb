@@ -31,6 +31,7 @@ class ItensController < ApplicationController
   def new
     @item = Item.new
     @operation = 'create'
+    @categorias = get_all_categorias_from_user(current_user)
     respond_to do |format|
       format.html
     end
@@ -39,6 +40,7 @@ class ItensController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @operation = 'update'
+    @categorias = get_all_categorias_from_user(current_user)
   end
 
   def create

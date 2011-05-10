@@ -83,7 +83,7 @@
 	</div>
     <div>
 		<%= f.collection_select(:categoria_id,
-			get_all_categorias_from_user(current_user),
+			@categorias,
 			:id, :nome, {:prompt => "Selecione"}, {:class => 'input'}) %>		
 	</div>     
   </div>
