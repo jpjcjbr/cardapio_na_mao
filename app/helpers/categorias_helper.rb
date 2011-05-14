@@ -7,6 +7,8 @@ module CategoriasHelper
 
     return Array.new if not user
 
+    Categoria.
+
     categorias = Categoria.order('nome ASC').where('updated_at > ?', date).find_all_by_user_id user.id
 
     return Array.new if not categorias

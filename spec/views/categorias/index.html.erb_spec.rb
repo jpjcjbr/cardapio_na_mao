@@ -25,6 +25,5 @@ describe "categorias/index.html.erb" do
     @categorias = Array.new.paginate :page => params['page'], :per_page => 10
     render
     rendered.should have_selector("div.wrapper_tabela p", :content => 'Nenhuma categoria cadastrada.')
-  end
-  
+  end  
 end
