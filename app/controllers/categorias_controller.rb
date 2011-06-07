@@ -1,3 +1,4 @@
+# coding: utf-8
 class CategoriasController < ApplicationController
   before_filter :authenticate_user!, :except => [:all_categorias_from_user]
   before_filter :remove_json_root!, :only => [:index, :all_categorias_from_user, :show]
@@ -71,9 +72,9 @@ class CategoriasController < ApplicationController
     respond_to do |format|
       if @categoria.itens.empty?
         @categoria.destroy
-        format.html { redirect_to(categorias_url, :notice => 'Categoria excluída com sucesso.') }
+        format.html { redirect_to(categorias_url, :notice => 'Categoria exclu�da com sucesso.') }
       else
-        format.html { redirect_to(categorias_url, :alert => 'Não foi possível excluir a categoria "' + @categoria.nome + '", ela possui itens associados.') }
+        format.html { redirect_to(categorias_url, :alert => 'N�o foi poss�vel excluir a categoria "' + @categoria.nome + '", ela possui itens associados.') }
       end
     end
   end

@@ -1,3 +1,4 @@
+# coding: utf-8
 class ItensController < ApplicationController
   before_filter :remover_currency, :only => [:create, :update]
   before_filter :authenticate_user!, :except => [:all_itens_from_user]

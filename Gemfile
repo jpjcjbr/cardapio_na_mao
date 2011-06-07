@@ -1,12 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.7'
 gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
 gem 'devise'
 gem 'aws-s3'
 gem 'paperclip'
 gem 'will_paginate'
 gem 'jquery-rails', '>= 0.2.6'
+
+gem 'rake', '0.9.2'
 
 group :development do
   gem 'rspec-rails', '2.5.0'  
