@@ -1,37 +1,14 @@
 require 'spec_helper'
 
 describe Categoria do
+
+  subject { Factory(:categoria) }
   
-  it "deve pertencer a um usuario" do
-    Categoria.new.should respond_to(:user)
-  end
-  
-  it "deve ter muitos itens" do
-    Categoria.new.should respond_to(:itens)
-  end
-  
-  it "deve criar uma nova instancia" do    
-    user = Factory(:user)
-    
-    lambda{
-      Categoria.create :nome => 'NovaCategoria', :user_id => user.id
-    }.should change(Categoria, :count).by 1    
-  end
-  
-  [:nome, :user_id].each do |attr|
-    it "deve possuir um #{attr}" do
-      categoria = Categoria.new
-      categoria.should_not be_valid
-      categoria.errors[attr].should_not be_nil
-    end
-  end    
-        
-  it "pode gerar uma categoria usando a factory" do
-    categoria = Factory :categoria
-    categoria.should_not be_nil
-    categoria.should be_kind_of(Categoria)
-  end
-  
+  it { should belong_to(:user) }
+  it { should have_many(:itens) }
+  it { should validate_presence_of(:nome) }
+  it { should validate_presence_of(:user) }
+            
   it "deve possuir um nome unico no escopo de usuario" do
     categoria1 = Factory(:categoria, :nome => 'Categoria1')
     
@@ -53,13 +30,5 @@ describe Categoria do
     lambda{
       nova_categoria.save
     }.should change(Categoria, :count).by 1
-  end
-  
-  it "nao deve salvar quando associado a um usuario inexistente" do
-    categoria1 = Categoria.new(:nome => 'categoria2', :user_id => 777)
-    
-    lambda{
-      categoria1.save
-    }.should_not change(Categoria, :count)
   end
 end

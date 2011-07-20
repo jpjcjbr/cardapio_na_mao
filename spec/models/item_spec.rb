@@ -2,31 +2,11 @@ require 'spec_helper'
 
 describe Item do
   
-  it "deve pertencer a uma categoria" do
-    Item.new.should respond_to(:categoria)
-  end
+  subject { Factory(:item) }
   
-  it "deve criar uma nova instancia" do
-    categoria = Factory(:categoria)
-    
-    lambda{
-      Item.create :nome => 'NovoItem', :preco => 10.0, :categoria_id => categoria.id
-    }.should change(Item, :count).by 1    
-  end
-  
-  [:nome, :categoria_id].each do |attr|
-    it "deve possuir um #{attr}" do
-      item = Item.new
-      item.should_not be_valid
-      item.errors[attr].should_not be_nil
-    end
-  end    
-        
-  it "pode gerar um item usando a factory" do
-    item = Factory :item
-    item.should_not be_nil
-    item.should be_kind_of(Item)
-  end
+  it { should belong_to(:categoria)}
+  it { should validate_presence_of(:nome) }
+  it { should validate_presence_of(:categoria) }
   
   it "deve possuir um nome unico no escopo de categoria" do
     item1 = Factory(:item, :nome => 'Item1')
@@ -48,13 +28,5 @@ describe Item do
     lambda{
       novo_item.save
     }.should change(Item, :count).by 1
-  end
-  
-  it "nao deve salvar quando associada a uma categoria inexistente" do
-   item1 = Item.new(:nome => 'item2', :categoria_id => 999)
-    
-    lambda{
-      item1.save
-    }.should_not change(Item, :count) 
   end
 end

@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 	validates_presence_of :nome, :message => 'deve ser preenchido.'
 	validates_numericality_of :preco, :greater_than => 0, :message => 'deve ser maior que zero.'
 	
-	validates_presence_of :categoria_id, :message => 'deve ser selecionada.'
+	validates_presence_of :categoria
 	validates_associated :categoria
 	
 	has_attached_file :imagem, 

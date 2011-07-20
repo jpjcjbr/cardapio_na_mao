@@ -3,11 +3,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
-
-class Rails::Application
-
-  include Rake::DSL if defined?(Rake::DSL)
-
-end
+require 'rake/dsl_definition'
 
 CardapioNaMao::Application.load_tasks

@@ -4,12 +4,12 @@ Factory.define :user do |user|
 end
 
 Factory.define :categoria do |categoria|
-  categoria.nome "Salada"
+  categoria.sequence(:nome) { |n| "Salada#{n}" }
   categoria.association :user, :factory => :user
 end
 
 Factory.define :item do |item|
-  item.nome "Saladrix"
+  item.sequence(:nome) { |n| "Saladrix#{n}" }
   item.preco 19.00
   item.association :categoria, :factory => :categoria
 end

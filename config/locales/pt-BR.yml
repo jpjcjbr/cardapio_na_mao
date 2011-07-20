@@ -7,13 +7,18 @@ pt-BR:
       item:
         preco: "Preço"
     errors:
+      messages:
+        blank: "deve ser preenchido."
+        taken: "já foi utilizado."
+        wrong_length: "deve possuir %{count} caracteres."
+        not_a_number: "deve ser um número."
       models:
         user:
           attributes:
             email:
-              blank: " deve ser preenchido."
-              taken: " já foi utilizado."
-              invalid: " inválido."
+              blank: "deve ser preenchido."
+              taken: "já foi utilizado."
+              invalid: "inválido."
             password:
               blank: " deve ser preenchida."
               confirmation: " não confere com a confirmação."
