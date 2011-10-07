@@ -24,11 +24,6 @@ class CategoriasController < ApplicationController
     end
   end
 
-  def show
-    @categoria = Categoria.find(params[:id])
-    respond_with @categoria
-  end
-
   def new
     @categoria = Categoria.new
 
@@ -72,9 +67,9 @@ class CategoriasController < ApplicationController
     respond_to do |format|
       if @categoria.itens.empty?
         @categoria.destroy
-        format.html { redirect_to(categorias_url, :notice => 'Categoria exclu�da com sucesso.') }
+        format.html { redirect_to(categorias_url, :notice => 'Categoria excluída com sucesso.') }
       else
-        format.html { redirect_to(categorias_url, :alert => 'N�o foi poss�vel excluir a categoria "' + @categoria.nome + '", ela possui itens associados.') }
+        format.html { redirect_to(categorias_url, :alert => 'Não foi possível excluir a categoria "' + @categoria.nome + '", ela possui itens associados.') }
       end
     end
   end

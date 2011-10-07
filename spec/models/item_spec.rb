@@ -29,4 +29,11 @@ describe Item do
       novo_item.save
     }.should change(Item, :count).by 1
   end
+  
+  it "deve retornar a url da imagem quando existir um nome de imagem configurado" do
+    item = Item.new
+    item.imagem_file_name = 'imagem.jpg'
+    
+    item.url_imagem.should_not be_nil
+  end
 end

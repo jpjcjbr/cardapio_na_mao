@@ -13,6 +13,11 @@ describe CategoriasController do
       post :create, :categoria => Factory.attributes_for(:categoria)
     end
     
+    it "deve carregar a tela de nova categoria" do
+      get :new
+      response.should render_template(:action => "new")
+    end
+    
     it "deve associar um usuario a categoria criada" do 
       expect {
         criar_categoria
@@ -23,13 +28,31 @@ describe CategoriasController do
       criar_categoria
       response.should redirect_to(categorias_url)
     end
+    
+    it "deve redirecionar para a tela de criacao quando ocorrer um erro durante a criacao" do
+      post :create, :categoria => Categoria.new
+      response.should render_template(:action => "new")
+    end
   end
   
   describe "ao atualizar uma categoria" do
+    
+    it "deve carregar uma categoria para a edicao" do
+      categoria = Factory(:categoria)
+      get :edit, :id => categoria.id
+      response.should render_template(:action => 'edit')
+    end
+    
     it "deve redirecionar o usuario para a tela de listagem" do
       categoria = Factory(:categoria)
       put :update, :id => categoria.id, :categoria => {'nome' => 'nome_alterado'}
       response.should redirect_to(categorias_url)
+    end
+    
+    it "deve redirecionar para a tela de edicao quando ocorrer erro durante a edicao" do
+      categoria = Factory(:categoria)
+      put :update, :id => categoria.id, :categoria => {'nome' => ''}
+      response.should render_template(:action => "edit")
     end
   end
   
@@ -51,5 +74,35 @@ describe CategoriasController do
       delete :destroy, :id => categoria.id.to_s      
       response.should redirect_to(categorias_url)
     end
+    
+    it "deve deletar a categoria quando nao existirem itens associados" do
+      categoria = Factory(:categoria)
+      
+      expect {
+        delete :destroy, :id => categoria.id.to_s
+      }.to change(Categoria, :count).by(-1)
+    end
+    
+    it "nao deve deletar a categoria quando existirem itens associados" do
+      item = Factory(:item)
+      categoria = item.categoria
+      
+      expect {
+        delete :destroy, :id => categoria.id.to_s
+      }.to change(Categoria, :count).by(0)
+    end
+  end
+  
+  describe "ao buscar as categorias de um usuario" do
+    #it "deve retornar todas as categorias de um usuario valido" do
+    #  user = Factory(:user)
+    #  get :all_categorias_from_user, :email => user.email
+    #  response.should be_success
+    #end
+    
+    #it "deve retornar um erro quando o usuario for invalido" do
+    #  get :all_categorias_from_user, :email => "email nao existente"
+    #  response.should_not be_success
+    #end
   end
 end

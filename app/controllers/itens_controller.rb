@@ -24,11 +24,6 @@ class ItensController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:id])
-    respond_with @item
-  end
-
   def new
     @item = Item.new
     @operation = 'create'
@@ -46,7 +41,6 @@ class ItensController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-
     respond_to do |format|
       if @item.save
         format.html { redirect_to(itens_url, :notice => 'Item cadastrado com sucesso.') }
@@ -58,7 +52,7 @@ class ItensController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-
+        
     respond_to do |format|
       if @item.update_attributes(params[:item])
         format.html { redirect_to(itens_url, :notice => 'Item atualizado com sucesso.') }
